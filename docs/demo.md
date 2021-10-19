@@ -13,6 +13,43 @@ https://raw.githubusercontent.com/vega/vega/master/docs/examples/bar-chart.vg.js
 ```
 ## Internal code with external data
 
+````markdown
+```vega
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "width": "800",
+  "height": "600",
+  "data": {
+    "url": "https://vega.github.io/vega-lite/data/us-10m.json",
+    "format": {
+      "type": "topojson",
+      "feature": "counties"
+    }
+  },
+  "transform": [{
+    "lookup": "id",
+    "from": {
+      "data": {
+        "url": "https://vega.github.io/vega-lite/data/unemployment.tsv"
+      },
+      "key": "id",
+      "fields": ["rate"]
+    }
+  }],
+  "projection": {
+    "type": "albersUsa"
+  },
+  "mark": "geoshape",
+  "encoding": {
+    "color": {
+      "field": "rate",
+      "type": "quantitative"
+    }
+  }
+}
+```
+````
+
 ```vega
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
@@ -49,6 +86,8 @@ https://raw.githubusercontent.com/vega/vega/master/docs/examples/bar-chart.vg.js
 ```
 
 ## Internal code with controls
+
+This example use [this vega example](https://vega.github.io/vega/examples/earthquakes/).
 
 ```vega
 {
