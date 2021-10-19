@@ -6,3 +6,5 @@ Some strange guys want to display diagrams inside documentation. [Vega/vegalite]
 
 This documentaion explains how to integrate vega/vegalite diagrams into your docsify documentation.
 
+![](http://vda-lab.github.io/assets/vega-lite.png)
+
