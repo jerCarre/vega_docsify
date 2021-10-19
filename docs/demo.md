@@ -2,13 +2,11 @@
 
 ## External diagram
 
-`````markdown
-
+````markdown
 ```vega
 https://raw.githubusercontent.com/vega/vega/master/docs/examples/bar-chart.vg.json
 ```
-
-````` 
+```` 
 
 ```vega
 https://raw.githubusercontent.com/vega/vega/master/docs/examples/bar-chart.vg.json
