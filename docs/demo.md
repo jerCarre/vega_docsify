@@ -94,7 +94,7 @@ Code from [this vega example](https://vega.github.io/vega/examples/earthquakes/)
   "$schema": "https://vega.github.io/schema/vega/v5.json",
   "description": "An interactive globe depicting earthquake locations and magnitudes.",
   "padding": 10,
-  "width": container,
+  "width": "container",
   "height": 450,
   "autosize": "none",
 
