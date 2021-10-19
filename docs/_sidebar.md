@@ -1,5 +1,5 @@
 <!-- docs/_sidebar.md -->
 
 * [Home](/)
-* [Configure docsify](config.md)
+* [Configure docsify](configure.md)
 * [Demonstration](demo.md)
