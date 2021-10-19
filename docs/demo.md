@@ -87,7 +87,7 @@ https://raw.githubusercontent.com/vega/vega/master/docs/examples/bar-chart.vg.js
 
 ## Internal code with controls
 
-This example use [this vega example](https://vega.github.io/vega/examples/earthquakes/).
+Code from [this vega example](https://vega.github.io/vega/examples/earthquakes/).
 
 ```vega
 {
