@@ -38,13 +38,13 @@ https://raw.githubusercontent.com/vega/vega/master/docs/examples/bar-chart.vg.js
 
 In your docsify index.html your must add following code :
 
-```html
-  <script src="https://cdn.jsdelivr.net/npm/vega@5"></script>
-  <script src="https://cdn.jsdelivr.net/npm/vega-lite@5"></script>
-  <script src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
-```
+```js
+  // import vega
+  // <script src="https://cdn.jsdelivr.net/npm/vega@5"></script>
+  // <script src="https://cdn.jsdelivr.net/npm/vega-lite@5"></script>
+  // <script src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
 
-```html
+window.$docsify = {
   markdown: {
     renderer: {
       code: function(code, lang) {
@@ -73,4 +73,5 @@ In your docsify index.html your must add following code :
       });
     }
   ]
+}
 ```
