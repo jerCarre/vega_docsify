@@ -2,7 +2,7 @@
 
 ## Add your code
 
-Add blocks of code in your markdown with `vega` or `vegalite` syntax indication.
+Add blocks of code in your markdown with `vega` or `vegalite` syntax property.
 
 ````markdown
 ```vega
