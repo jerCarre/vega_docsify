@@ -220,7 +220,7 @@ Code from [this vega example](https://vega.github.io/vega/examples/earthquakes/)
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
   "description": "A simple pie chart with labels.",
   "data": {
-    "url": "https://gist.github.com/jerCarre/075bef8f4f1410657c58711f9a4bd021"    
+    "url": "https://gist.github.com/jerCarre/075bef8f4f1410657c58711f9a4bd021/raw/"    
   },  
   "encoding": {
     "theta": {"field": "value", "type": "quantitative", "stack": true},
