@@ -59,7 +59,7 @@ window.$docsify = {
   },
   plugins: [
     function(hook, vm) {
-      hook.ready(function() {
+      hook.doneEach(function() {
         const options = {
           actions: {editor: false, source: false, compiled: false} 
         }
