@@ -95,7 +95,7 @@ Code from [this vega example](https://vega.github.io/vega/examples/earthquakes/)
   "description": "An interactive globe depicting earthquake locations and magnitudes.",
   "padding": 10,
   "width": 500,
-  "height": 400,
+  "height": 500,
   "autosize": "none",
 
   "signals": [
