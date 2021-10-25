@@ -231,7 +231,7 @@ Code from [this vega example](https://vega.github.io/vega/examples/earthquakes/)
   }, {
     "mark": {"type": "text", "radius": 90},
     "encoding": {
-      "text": {"field": "category", "type": "nominal"}
+      "text": {"field": "value", "type": "nominal"}
     }
   }]
 }
