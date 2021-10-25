@@ -17,8 +17,8 @@ https://raw.githubusercontent.com/vega/vega/master/docs/examples/bar-chart.vg.js
 ```vega
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-  "width": "1024",
-  "height": "600",
+  "width": 500,
+  "height": 300,
   "data": {
     "url": "https://vega.github.io/vega-lite/data/us-10m.json",
     "format": {
@@ -53,8 +53,8 @@ https://raw.githubusercontent.com/vega/vega/master/docs/examples/bar-chart.vg.js
 ```vega
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-  "width": "1024",
-  "height": "600",
+  "width": 500,
+  "height": 300,
   "data": {
     "url": "https://vega.github.io/vega-lite/data/us-10m.json",
     "format": {
@@ -94,8 +94,8 @@ Code from [this vega example](https://vega.github.io/vega/examples/earthquakes/)
   "$schema": "https://vega.github.io/schema/vega/v5.json",
   "description": "An interactive globe depicting earthquake locations and magnitudes.",
   "padding": 10,
-  "width": 1024,
-  "height": 450,
+  "width": 500,
+  "height": 300,,
   "autosize": "none",
 
   "signals": [
