@@ -212,3 +212,27 @@ Code from [this vega example](https://vega.github.io/vega/examples/earthquakes/)
   ]
 }
 ```
+
+## External data in Github gist
+
+```vegalite
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "description": "A simple pie chart with labels.",
+  "data": {
+    "url": "  https://gist.githubusercontent.com/jerCarre/075bef8f4f1410657c58711f9a4bd021/raw/2ebf1755b45fba6804e6545e25d51ad01ee65c72/data.json"    
+  },  
+  "encoding": {
+    "theta": {"field": "value", "type": "quantitative", "stack": true},
+    "color": {"field": "category", "type": "nominal", "legend": null}
+  },
+  "layer": [{
+    "mark": {"type": "arc", "outerRadius": 80}
+  }, {
+    "mark": {"type": "text", "radius": 90},
+    "encoding": {
+      "text": {"field": "category", "type": "nominal"}
+    }
+  }]
+}
+```
