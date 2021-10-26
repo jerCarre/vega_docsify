@@ -17,8 +17,8 @@ https://raw.githubusercontent.com/vega/vega/master/docs/examples/bar-chart.vg.js
 ```vega
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-  "width": "1024",
-  "height": "600",
+  "width": 500,
+  "height": 300,
   "data": {
     "url": "https://vega.github.io/vega-lite/data/us-10m.json",
     "format": {
@@ -53,8 +53,8 @@ https://raw.githubusercontent.com/vega/vega/master/docs/examples/bar-chart.vg.js
 ```vega
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-  "width": "1024",
-  "height": "600",
+  "width": 500,
+  "height": 300,
   "data": {
     "url": "https://vega.github.io/vega-lite/data/us-10m.json",
     "format": {
@@ -94,8 +94,8 @@ Code from [this vega example](https://vega.github.io/vega/examples/earthquakes/)
   "$schema": "https://vega.github.io/schema/vega/v5.json",
   "description": "An interactive globe depicting earthquake locations and magnitudes.",
   "padding": 10,
-  "width": 1024,
-  "height": 450,
+  "width": 500,
+  "height": 500,
   "autosize": "none",
 
   "signals": [
@@ -210,5 +210,29 @@ Code from [this vega example](https://vega.github.io/vega/examples/earthquakes/)
       ]
     }
   ]
+}
+```
+
+## External data in Github gist
+
+```vegalite
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "description": "A simple pie chart with labels.",
+  "data": {
+    "url": "https://gist.githubusercontent.com/jerCarre/075bef8f4f1410657c58711f9a4bd021/raw/data.json"
+  },  
+  "encoding": {
+    "theta": {"field": "value", "type": "quantitative", "stack": true},
+    "color": {"field": "category", "type": "nominal", "legend": null}
+  },
+  "layer": [{
+    "mark": {"type": "arc", "outerRadius": 80}
+  }, {
+    "mark": {"type": "text", "radius": 90},
+    "encoding": {
+      "text": {"field": "value", "type": "nominal"}
+    }
+  }]
 }
 ```

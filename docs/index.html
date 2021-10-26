@@ -31,9 +31,9 @@
       },
       plugins: [
         function(hook, vm) {
-          hook.ready(function() {
+          hook.doneEach(function() {
             const options = {
-		actions: {editor: false, source: false, compiled: false} 
+		actions: {editor: false, source: true, compiled: false} 
 	    }
 	    document.querySelectorAll(".vegalite_embed").forEach(item => {
 		try {
