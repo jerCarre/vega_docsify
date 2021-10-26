@@ -20,7 +20,7 @@
       markdown: {
         renderer: {
           code: function(code, lang) {
-	    if (lang == "vegalite" || lang == "vega") {
+	    if (lang == "vegalite" || lang == "vega" || lang == "vega-lite") {
 	      return (
 		'<div class="vegalite_embed">' + code + "</div>"
 	      );
@@ -28,23 +28,7 @@
             return this.origin.code.apply(this, arguments);
           }
         }
-      },
-      plugins: [
-        function(hook, vm) {
-          hook.doneEach(function() {
-            const options = {
-		actions: {editor: false, source: true, compiled: false} 
-	    }
-	    document.querySelectorAll(".vegalite_embed").forEach(item => {
-		try {
-			vegaEmbed(item, JSON.parse(item.innerHTML), options);
-		} catch(e) { 
-			vegaEmbed(item, item.innerHTML, options);
-		}
-	    });
-          });
-        }
-      ]
+      }
     }
 
   </script>
@@ -53,6 +37,7 @@
   <script src="//cdn.jsdelivr.net/npm/vega@5"></script>
   <script src="//cdn.jsdelivr.net/npm/vega-lite@5"></script>
   <script src="//cdn.jsdelivr.net/npm/vega-embed@6"></script>
+  <script src="//cdn.jsdelivr.net/gh/jerCarre/vega_docsify@develop/src/docsivega.js"></script>
   <script src="//cdn.jsdelivr.net/npm/prismjs/components/prism-markdown.min.js"></script>
 </body>
 </html>
