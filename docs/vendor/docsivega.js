@@ -1,5 +1,19 @@
 function plugin(hook, vm) {	
 
+  hook.afterEach(function(html, next) {
+    var htmlElement = document.createElement('div');
+    htmlElement.innerHTML = html;
+	  
+    htmlElement.querySelectorAll('pre[data-lang=vega],pre[data-lang=vegalite],pre[data-lang=vega-lite]').forEach((element) => {
+      var replacement = document.createElement('div');
+      replacement.textContent = element.textContent;
+      replacement.classList.add('vegalite_embed');
+      element.parentNode.replaceChild(replacement, element);
+    });
+
+    next(htmlElement.innerHTML);
+  });	
+	
   hook.doneEach((hook) => {
     const options = {
 	actions: {editor: false, source: true, compiled: false} 
