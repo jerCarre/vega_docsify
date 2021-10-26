@@ -10,7 +10,7 @@ function plugin(hook, vm) {
       } catch(e) { 
         vegaEmbed(item, item.innerHTML, options);
       }
-    }
+    })
   })
 
 }
