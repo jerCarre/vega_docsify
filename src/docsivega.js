@@ -1,5 +1,5 @@
-let plugin = (hook, vm) => {
-	
+function plugin(hook, vm) {	
+
   hook.doneEach((hook) => {
     const options = {
 	actions: {editor: false, source: true, compiled: false} 
@@ -11,9 +11,12 @@ let plugin = (hook, vm) => {
         vegaEmbed(item, item.innerHTML, options);
       }
     }
-  });
-};	
+  })
 
-};
+}
 
-export default plugin;
+if (!window.$docsify) {
+    window.$docsify = {}
+}
+
+window.$docsify.plugins = (window.$docsify.plugins || []).concat(plugin)
