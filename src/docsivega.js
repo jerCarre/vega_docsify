@@ -1,6 +1,5 @@
-(function () {
-
-const install = function (hook) {
+let plugin = (hook, vm) => {
+	
   hook.doneEach((hook) => {
     const options = {
 	actions: {editor: false, source: true, compiled: false} 
@@ -15,6 +14,6 @@ const install = function (hook) {
   });
 };	
 
-window.$docsify.plugins = [].concat(install, $docsify.plugins);
-	
-})();
+};
+
+export default plugin;
