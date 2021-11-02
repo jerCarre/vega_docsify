@@ -57,7 +57,7 @@ In your docsify index.html your must add following code :
   // <script src="//cdn.jsdelivr.net/npm/vega@5"></script>
   // <script src="//cdn.jsdelivr.net/npm/vega-lite@5"></script>
   // <script src="//cdn.jsdelivr.net/npm/vega-embed@6"></script>
-  // <script src="//cdn.jsdelivr.net/gh/jerCarre/vega_docsify@develop/lib/docsivega.js"></script>  
+  // <script src="//cdn.jsdelivr.net/gh/jerCarre/vega_docsify@main/lib/docsivega.js"></script>  
 
 ```
 
