@@ -47,42 +47,18 @@ https://raw.githubusercontent.com/vega/vega/master/docs/examples/bar-chart.vg.js
 
 In your docsify index.html your must add following code :
 
-```js
-  // import vega
-  // <script src="https://cdn.jsdelivr.net/npm/vega@5"></script>
-  // <script src="https://cdn.jsdelivr.net/npm/vega-lite@5"></script>
-  // <script src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
+```html
 
-window.$docsify = {
-  markdown: {
-    renderer: {
-      code: function(code, lang) {
-        if (lang == "vegalite" || lang == "vega") {
-          return (
-            '<div class="vegalite_embed">' + code + "</div>"
-          );
-        }
-        return this.origin.code.apply(this, arguments);
-      }
-    }
-  },
-  plugins: [
-    function(hook, vm) {
-      hook.doneEach(function() {
-        const options = {
-          actions: {editor: false, source: false, compiled: false} 
-        }
-        document.querySelectorAll(".vegalite_embed").forEach(item => {
-          try {
-            vegaEmbed(item, JSON.parse(item.innerHTML), options);
-          } catch(e) { 
-            vegaEmbed(item, item.innerHTML, options);
-          }
-        });
-      });
-    }
-  ]
-}
+  window.$docsify = {
+  ...
+  }
+
+  // import vega
+  // <script src="//cdn.jsdelivr.net/npm/vega@5"></script>
+  // <script src="//cdn.jsdelivr.net/npm/vega-lite@5"></script>
+  // <script src="//cdn.jsdelivr.net/npm/vega-embed@6"></script>
+  // <script src="//cdn.jsdelivr.net/gh/jerCarre/vega_docsify@develop/lib/docsivega.js"></script>  
+
 ```
 
 ## Demos
