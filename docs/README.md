@@ -8,7 +8,7 @@ Some strange guys want to display diagrams inside documentation. [Vega/vegalite]
 
 This documentaion explains how to integrate vega/vegalite diagrams into your docsify documentation.
 
-## Docsify configuration
+## How to configure
 
 ### Add your code
 
@@ -85,7 +85,7 @@ window.$docsify = {
 }
 ```
 
-## Vega in docsify
+## Demos
 
 ### External diagram
 
