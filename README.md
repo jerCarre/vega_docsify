@@ -6,7 +6,7 @@ Some strange guys want to display diagrams inside documentation. [Vega/vegalite]
 
 ![](http://vda-lab.github.io/assets/vega-lite.png)
 
-[This documentaion](https://jercarre.github.io/vega_docsify/) explains how to integrate vega/vegalite diagrams into your docsify documentation.
+[This documentation](https://jercarre.github.io/vega_docsify/) explains how to integrate vega/vegalite diagrams into your docsify documentation.
 
 ## How to configure
 
@@ -24,7 +24,7 @@ your vegalite code
 ```
 ````
 
-Your code can be json or url to external code :
+You can write either json or url to external code :
 
 ````markdown
 ```vega
