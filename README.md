@@ -80,7 +80,7 @@ https://raw.githubusercontent.com/vega/vega/master/docs/examples/bar-chart.vg.js
 ```vega
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-  "width": "container",
+  "width": 500,
   "height": 300,
   "data": {
     "url": "https://vega.github.io/vega-lite/data/us-10m.json",
@@ -116,7 +116,7 @@ https://raw.githubusercontent.com/vega/vega/master/docs/examples/bar-chart.vg.js
 ```vega
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-  "width": "container",
+  "width": 500,
   "height": 300,
   "data": {
     "url": "https://vega.github.io/vega-lite/data/us-10m.json",
