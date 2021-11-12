@@ -299,3 +299,34 @@ Code from [this vega example](https://vega.github.io/vega/examples/earthquakes/)
   }]
 }
 ```
+
+```vegalite
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "description": "Bump chart",
+    "width": 500,
+    "height": 300,
+    "data": {
+      "values": [
+        {"pf": "fr", "commit": "a2043829", "date": "2021-11-12", "author": "@jcarre via ansible"  , "bdx": "2.21.13.3", "tls": "2.21.13.3"},
+        {"pf": "fr", "commit": "ab11d552", "date": "2021-11-11", "author": "@jcarre via ansible"  , "bdx": "2.21.13.3", "tls": "2.21.12.1"},
+        {"pf": "fr", "commit": "8683830c", "date": "2021-11-10", "author": "@jcarre via ansible"  , "bdx": "2.21.12.1", "tls": "2.21.12.1"},
+        {"pf": "fr", "commit": "9bb5c178", "date": "2021-11-09", "author": "@jcarre via ansible"  , "bdx": "2.21.12.1", "tls": "2.21.12.1"},
+        {"pf": "fr", "commit": "91b39482", "date": "2021-11-08", "author": "@alaforie via ansible", "bdx": "2.21.12.1", "tls": "2.21.12.1"},
+        {"pf": "fr", "commit": "8ef6eefd", "date": "2021-11-04", "author": "@jcarre via ansible"  , "bdx": "2.21.12.1", "tls": "2.21.12.1"},
+        {"pf": "fr", "commit": "b6ac4a5c", "date": "2021-11-03", "author": "@jcarre via ansible"  , "bdx": "2.21.12.1", "tls": "2.21.13.2"}
+      ]
+    },
+    "mark": {
+      "type": "line",
+      "interpolate": "step-after",
+      "point": true
+    },
+    "encoding": {
+      "x": {"field": "date"},
+      "y": {"field": "tls", "sort": "descending"}, 
+      "order": {"field": "date"}
+    }
+  }
+  ```
+  
