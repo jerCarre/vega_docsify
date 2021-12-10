@@ -61,6 +61,25 @@ In your docsify index.html your must add following code :
 
 ```
 
+According to [this documentation](https://github.com/vega/vega-embed#options) you can add extra options (for all diagrams) :
+
+```html
+
+  window.$docsify = {
+    ...
+      vegalite: {
+        actions: {editor: true, source: true, compiled: false} 
+      }
+    ...
+  }
+
+  // import vega
+  // <script src="//cdn.jsdelivr.net/npm/vega@5"></script>
+  // <script src="//cdn.jsdelivr.net/npm/vega-lite@5"></script>
+  // <script src="//cdn.jsdelivr.net/npm/vega-embed@6"></script>
+  // <script src="//cdn.jsdelivr.net/gh/jerCarre/vega_docsify@main/lib/docsivega.js"></script>  
+
+```
 ## Demos
 
 ### External diagram
