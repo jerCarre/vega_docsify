@@ -48,7 +48,6 @@ https://raw.githubusercontent.com/vega/vega/master/docs/examples/bar-chart.vg.js
 In your docsify index.html your must add following code :
 
 ```html
-
   window.$docsify = {
   ...
   }
@@ -58,9 +57,25 @@ In your docsify index.html your must add following code :
   // <script src="//cdn.jsdelivr.net/npm/vega-lite@5"></script>
   // <script src="//cdn.jsdelivr.net/npm/vega-embed@6"></script>
   // <script src="//cdn.jsdelivr.net/gh/jerCarre/vega_docsify@main/lib/docsivega.js"></script>  
-
 ```
 
+According to [this documentation](https://github.com/vega/vega-embed#options) you can add extra options for all diagrams :
+
+```html
+  window.$docsify = {
+    ...
+      vegalite: {
+        actions: {editor: true, source: true, compiled: false} 
+      }
+    ...
+  }
+
+  // import vega
+  // <script src="//cdn.jsdelivr.net/npm/vega@5"></script>
+  // <script src="//cdn.jsdelivr.net/npm/vega-lite@5"></script>
+  // <script src="//cdn.jsdelivr.net/npm/vega-embed@6"></script>
+  // <script src="//cdn.jsdelivr.net/gh/jerCarre/vega_docsify@main/lib/docsivega.js"></script>  
+```
 ## Demos
 
 ### External diagram
@@ -299,3 +314,67 @@ Code from [this vega example](https://vega.github.io/vega/examples/earthquakes/)
   }]
 }
 ```
+
+```vegalite
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "description": "Bump chart",
+    "width": 500,
+    "height": 300,
+    "data": {
+      "values": [
+        {"site": "tls", "pf": "fr", "commit": "a2043829", "date": "2021-11-12", "author": "@jcarre via ansible"  , "value": "2.21.13.3"},
+        {"site": "tls", "pf": "fr", "commit": "ab11d552", "date": "2021-11-11", "author": "@jcarre via ansible"  , "value": "2.21.12.1"},
+        {"site": "tls", "pf": "fr", "commit": "8683830c", "date": "2021-11-10", "author": "@jcarre via ansible"  , "value": "2.21.12.1"},
+        {"site": "tls", "pf": "fr", "commit": "9bb5c178", "date": "2021-11-09", "author": "@jcarre via ansible"  , "value": "2.21.12.1"},
+        {"site": "tls", "pf": "fr", "commit": "91b39482", "date": "2021-11-08", "author": "@alaforie via ansible", "value": "2.21.12.1"},
+        {"site": "tls", "pf": "fr", "commit": "8ef6eefd", "date": "2021-11-04", "author": "@jcarre via ansible"  , "value": "2.21.12.1"},
+        {"site": "tls", "pf": "fr", "commit": "b6ac4a5c", "date": "2021-11-03", "author": "@jcarre via ansible"  , "value": "2.21.13.2"},
+        {"site": "bdx", "pf": "fr", "commit": "a2043829", "date": "2021-11-12", "author": "@jcarre via ansible"  , "value": "2.21.13.2"},
+        {"site": "bdx", "pf": "fr", "commit": "ab11d552", "date": "2021-11-11", "author": "@jcarre via ansible"  , "value": "2.21.13.3"},
+        {"site": "bdx", "pf": "fr", "commit": "8683830c", "date": "2021-11-10", "author": "@jcarre via ansible"  , "value": "2.21.12.1"},
+        {"site": "bdx", "pf": "fr", "commit": "9bb5c178", "date": "2021-11-09", "author": "@jcarre via ansible"  , "value": "2.21.12.1"},
+        {"site": "bdx", "pf": "fr", "commit": "91b39482", "date": "2021-11-08", "author": "@alaforie via ansible", "value": "2.21.13.3"},
+        {"site": "bdx", "pf": "fr", "commit": "8ef6eefd", "date": "2021-11-04", "author": "@jcarre via ansible"  , "value": "2.21.12.1"},
+        {"site": "bdx", "pf": "fr", "commit": "b6ac4a5c", "date": "2021-11-03", "author": "@jcarre via ansible"  , "value": "2.21.12.1"}        
+      ]
+    },
+    "transform": [
+    {
+      "window": [{
+          "op": "row_number",
+          "field": "date",          
+          "as": "index"
+      }]
+    }],
+     "mark": {
+       "type": "line",
+       "interpolate": "step-after",
+       "point": true
+     },
+     "params": [
+       {
+         "name": "legend",
+         "select": {"type": "point", "fields": ["site"]},
+         "bind": "legend"
+       }
+     ],
+     "encoding": {
+       "x": {"field": "date"},
+       "y": {"field": "value", "sort": "descending", "axis": {"grid": true}}, 
+       "order": {"field": "date"},
+       "color": {"field": "site"},
+       "opacity": {
+        "condition": {"param": "legend", "value": 1},
+        "value": 0.2
+      },
+      "tooltip": [
+        {"field": "pf"},
+        {"field": "site"},
+        {"field": "value"},
+        {"field": "author"}
+      ]
+     }
+  }
+  ```
+  
