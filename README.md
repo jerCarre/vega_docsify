@@ -314,7 +314,7 @@ Code from [this vega example](https://vega.github.io/vega/examples/earthquakes/)
   }]
 }
 ```
-
+  
 
 ```vegalite
 {
