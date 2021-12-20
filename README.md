@@ -317,7 +317,22 @@ Code from [this vega example](https://vega.github.io/vega/examples/earthquakes/)
   "data": [
     {
       "name": "table",
-      "url": "https://gist.githubusercontent.com/jerCarre/42fecbe4d09c78c894f3237230bde32f/raw/a2628a18671e7d9944da5a34195dd9a02d128347/radar_data.json"
+      "values": [
+        {"key": "key-0", "value": 19, "category": 0},
+        {"key": "key-1", "value": 22, "category": 0},
+        {"key": "key-2", "value": 14, "category": 0},
+        {"key": "key-3", "value": 38, "category": 0},
+        {"key": "key-4", "value": 23, "category": 0},
+        {"key": "key-5", "value": 5, "category": 0},
+        {"key": "key-6", "value": 27, "category": 0},
+        {"key": "key-0", "value": 13, "category": 1},
+        {"key": "key-1", "value": 12, "category": 1},
+        {"key": "key-2", "value": 42, "category": 1},
+        {"key": "key-3", "value": 13, "category": 1},
+        {"key": "key-4", "value": 6, "category": 1},
+        {"key": "key-5", "value": 15, "category": 1},
+        {"key": "key-6", "value": 8, "category": 1}
+      ]
     },
     {
       "name": "keys",
