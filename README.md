@@ -84,10 +84,18 @@ According to [official vega documentation](https://github.com/vega/vega-embed#op
 ```vega
 https://raw.githubusercontent.com/vega/vega/master/docs/examples/bar-chart.vg.json
 ```
+
+```vega
+https://vega.github.io/vega/examples/radar-chart.vg.json
+```
 ```` 
 
 ```vega
 https://raw.githubusercontent.com/vega/vega/master/docs/examples/bar-chart.vg.json
+```
+
+```vega
+https://vega.github.io/vega/examples/radar-chart.vg.json
 ```
 ### Internal code with external data
 
@@ -315,35 +323,3 @@ Code from [this vega example](https://vega.github.io/vega/examples/earthquakes/)
 }
 ```
   
-
-```vegalite
-{
-    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-    "description": "Bitcoin/eur last day evolution",
-    "width": 500,
-    "height": 300,
-    "data": {
-      "format":{
-        "type": "json",
-        "property": "prices"
-      },
-      "url": "https://api.coingecko.com/api/v3/coins/bitcoin/market_chart?vs_currency=eur&days=1"
-    },
-    
-    "mark": {
-    "type": "line",
-    "point": {
-      "filled": false,
-      "fill": "white",
-      "size": 20
-    }
-  },
-    "encoding": {
-        "x": {"field": "0", "type": "temporal"},
-        "y": {"field": "1", "type": "quantitative", "scale": {"zero": false}},
-        "tooltip": [
-          {"field": "1", "title": "price(€)"}
-        ]
-  }
-}
-```
