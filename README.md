@@ -443,7 +443,7 @@ test
           "text": {"field": "key"},
           "align": [
             {
-              "test": "abs(scale('angular', datum.key)) > PI / 2",
+              "test": "abs(scale('angular', datum.key)) > PI / 2", 
               "value": "right"
             },
             {
@@ -452,10 +452,12 @@ test
           ],
           "baseline": [
             {
-              "test": "scale('angular', datum.key) > 0", "value": "top"
+              "test": "scale('angular', datum.key) > 0", 
+              "value": "top"
             },
             {
-              "test": "scale('angular', datum.key) == 0", "value": "middle"
+              "test": "scale('angular', datum.key) == 0", 
+              "value": "middle"
             },
             {
               "value": "bottom"
