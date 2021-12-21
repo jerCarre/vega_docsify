@@ -74,7 +74,7 @@ According to [official vega documentation](https://github.com/vega/vega-embed#op
   // <script src="//cdn.jsdelivr.net/npm/vega@5"></script>
   // <script src="//cdn.jsdelivr.net/npm/vega-lite@5"></script>
   // <script src="//cdn.jsdelivr.net/npm/vega-embed@6"></script>
-  // <script src="//cdn.jsdelivr.net/gh/jerCarre/vega_docsify@v1.0/lib/docsivega.js"></script>  
+  // <script src="//cdn.jsdelivr.net/gh/jerCarre/vega_docsify@v1.1/lib/docsivega.js"></script>  
 ```
 ## Demos
 
