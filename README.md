@@ -56,7 +56,7 @@ In your docsify index.html your must add following code :
   // <script src="//cdn.jsdelivr.net/npm/vega@5"></script>
   // <script src="//cdn.jsdelivr.net/npm/vega-lite@5"></script>
   // <script src="//cdn.jsdelivr.net/npm/vega-embed@6"></script>
-  // <script src="//cdn.jsdelivr.net/gh/jerCarre/vega_docsify@v1.0/lib/docsivega.js"></script>  
+  // <script src="//cdn.jsdelivr.net/gh/jerCarre/vega_docsify@v1.1/lib/docsivega.js"></script>  
 ```
 
 According to [official vega documentation](https://github.com/vega/vega-embed#options) you can add extra options for all diagrams :
