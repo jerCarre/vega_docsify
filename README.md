@@ -4,7 +4,7 @@
 
 Some strange guys want to display diagrams inside documentation. [Vega/vegalite](https://vega.github.io/) can be a pleasant way to draw its.
 
-![](http://vda-lab.github.io/assets/vega-lite.png)
+![](https://vda-lab.github.io/assets/vega-lite.png)
 
 [This documentation](https://jercarre.github.io/vega_docsify/) explains how to integrate vega/vegalite diagrams into your docsify documentation.
 
@@ -89,6 +89,7 @@ https://raw.githubusercontent.com/vega/vega/master/docs/examples/bar-chart.vg.js
 ```vega
 https://raw.githubusercontent.com/vega/vega/master/docs/examples/bar-chart.vg.json
 ```
+
 ### Internal code with external data
 
 ````markdown
@@ -293,24 +294,180 @@ Code from [this vega example](https://vega.github.io/vega/examples/earthquakes/)
 
 ### External data in Github gist
 
-```vegalite
+```vega
 {
-  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-  "description": "A simple pie chart with labels.",
-  "data": {
-    "url": "https://gist.githubusercontent.com/jerCarre/075bef8f4f1410657c58711f9a4bd021/raw/data.json"
-  },  
-  "encoding": {
-    "theta": {"field": "value", "type": "quantitative", "stack": true},
-    "color": {"field": "category", "type": "nominal", "legend": null}
-  },
-  "layer": [{
-    "mark": {"type": "arc", "outerRadius": 80}
-  }, {
-    "mark": {"type": "text", "radius": 90},
-    "encoding": {
-      "text": {"field": "value", "type": "nominal"}
+  "$schema": "https://vega.github.io/schema/vega/v5.json",
+  "description": "A radar chart example, showing multiple dimensions in a radial layout.",
+  "width": 400,
+  "height": 400,
+  "padding": 40,
+  "autosize": {"type": "none", "contains": "padding"},
+
+  "signals": [
+    {"name": "radius", "update": "width / 2"}
+  ],
+
+  "data": [
+    {
+      "name": "table",
+      "url": "https://gist.githubusercontent.com/jerCarre/42fecbe4d09c78c894f3237230bde32f/raw/a2628a18671e7d9944da5a34195dd9a02d128347/radar_data.json"
+    },
+    {
+      "name": "keys",
+      "source": "table",
+      "transform": [
+        {
+          "type": "aggregate",
+          "groupby": ["key"]
+        }
+      ]
     }
-  }]
+  ],
+
+  "scales": [
+    {
+      "name": "angular",
+      "type": "point",
+      "range": {"signal": "[-PI, PI]"},
+      "padding": 0.5,
+      "domain": {"data": "table", "field": "key"}
+    },
+    {
+      "name": "radial",
+      "type": "linear",
+      "range": {"signal": "[0, radius]"},
+      "zero": true,
+      "nice": false,
+      "domain": {"data": "table", "field": "value"},
+      "domainMin": 0
+    },
+    {
+      "name": "color",
+      "type": "ordinal",
+      "domain": {"data": "table", "field": "category"},
+      "range": {"scheme": "category10"}
+    }
+  ],
+
+  "encode": {
+    "enter": {
+      "x": {"signal": "radius"},
+      "y": {"signal": "radius"}
+    }
+  },
+
+  "marks": [
+    {
+      "type": "group",
+      "name": "categories",
+      "zindex": 1,
+      "from": {
+        "facet": {"data": "table", "name": "facet", "groupby": ["category"]}
+      },
+      "marks": [
+        {
+          "type": "line",
+          "name": "category-line",
+          "from": {"data": "facet"},
+          "encode": {
+            "enter": {
+              "interpolate": {"value": "linear-closed"},
+              "x": {"signal": "scale('radial', datum.value) * cos(scale('angular', datum.key))"},
+              "y": {"signal": "scale('radial', datum.value) * sin(scale('angular', datum.key))"},
+              "stroke": {"scale": "color", "field": "category"},
+              "strokeWidth": {"value": 1},
+              "fill": {"scale": "color", "field": "category"},
+              "fillOpacity": {"value": 0.1}
+            }
+          }
+        },
+        {
+          "type": "text",
+          "name": "value-text",
+          "from": {"data": "category-line"},
+          "encode": {
+            "enter": {
+              "x": {"signal": "datum.x"},
+              "y": {"signal": "datum.y"},
+              "text": {"signal": "datum.datum.value"},
+              "align": {"value": "center"},
+              "baseline": {"value": "middle"},
+              "fill": {"value": "black"}
+            }
+          }
+        }
+      ]
+    },
+    {
+      "type": "rule",
+      "name": "radial-grid",
+      "from": {"data": "keys"},
+      "zindex": 0,
+      "encode": {
+        "enter": {
+          "x": {"value": 0},
+          "y": {"value": 0},
+          "x2": {"signal": "radius * cos(scale('angular', datum.key))"},
+          "y2": {"signal": "radius * sin(scale('angular', datum.key))"},
+          "stroke": {"value": "lightgray"},
+          "strokeWidth": {"value": 1}
+        }
+      }
+    },
+    {
+      "type": "text",
+      "name": "key-label",
+      "from": {"data": "keys"},
+      "zindex": 1,
+      "encode": {
+        "enter": {
+          "x": {"signal": "(radius + 5) * cos(scale('angular', datum.key))"},
+          "y": {"signal": "(radius + 5) * sin(scale('angular', datum.key))"},
+          "text": {"field": "key"},
+          "align": [
+            {
+              "test": "abs(scale('angular', datum.key)) > PI / 2", 
+              "value": "right"
+            },
+            {
+              "value": "left"
+            }
+          ],
+          "baseline": [
+            {
+              "test": "scale('angular', datum.key) > 0", 
+              "value": "top"
+            },
+            {
+              "test": "scale('angular', datum.key) == 0", 
+              "value": "middle"
+            },
+            {
+              "value": "bottom"
+            }
+          ],
+          "fill": {"value": "black"},
+          "fontWeight": {"value": "bold"}
+        }
+      }
+    },
+    {
+      "type": "line",
+      "name": "outer-line",
+      "from": {"data": "radial-grid"},
+      "encode": {
+        "enter": {
+          "interpolate": {"value": "linear-closed"},
+          "x": {"field": "x2"},
+          "y": {"field": "y2"},
+          "stroke": {"value": "lightgray"},
+          "strokeWidth": {"value": 1}
+        }
+      }
+    }
+  ]
 }
 ```
+
+The Github gist is [HERE](https://gist.githubusercontent.com/jerCarre/42fecbe4d09c78c894f3237230bde32f/raw/a2628a18671e7d9944da5a34195dd9a02d128347/radar_data.json)
+
