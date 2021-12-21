@@ -84,19 +84,12 @@ According to [official vega documentation](https://github.com/vega/vega-embed#op
 ```vega
 https://raw.githubusercontent.com/vega/vega/master/docs/examples/bar-chart.vg.json
 ```
-
-```vega
-https://vega.github.io/vega/examples/radar-chart.vg.json
-```
 ```` 
 
 ```vega
 https://raw.githubusercontent.com/vega/vega/master/docs/examples/bar-chart.vg.json
 ```
 
-```vega
-https://vega.github.io/vega/examples/radar-chart.vg.json
-```
 ### Internal code with external data
 
 ````markdown
@@ -301,6 +294,8 @@ Code from [this vega example](https://vega.github.io/vega/examples/earthquakes/)
 
 ### External data in Github gist
 
+test
+
 ```vega
 {
   "$schema": "https://vega.github.io/schema/vega/v5.json",
@@ -488,3 +483,5 @@ Code from [this vega example](https://vega.github.io/vega/examples/earthquakes/)
   ]
 }
 ```
+
+test2
