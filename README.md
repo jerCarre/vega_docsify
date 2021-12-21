@@ -443,7 +443,7 @@ test
           "text": {"field": "key"},
           "align": [
             {
-              "test": "abs(scale('angular', datum.key)) < PI / 2", 
+              "test": "abs(scale('angular', datum.key)) == PI / 2", 
               "value": "right"
             },
             {
